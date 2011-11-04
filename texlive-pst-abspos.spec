@@ -52,6 +52,7 @@ even a relative) position on the page.
 %doc %{_texmfdistdir}/doc/generic/pst-abspos/pst-abspos-doc.tex
 #- source
 %doc %{_texmfdistdir}/source/generic/pst-abspos/Makefile
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -62,3 +63,5 @@ even a relative) position on the page.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
