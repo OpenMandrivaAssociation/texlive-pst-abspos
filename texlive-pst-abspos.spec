@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /graphics/pstricks/contrib/pst-abspos
-# catalog-date 2009-11-10 09:17:41 +0100
-# catalog-license lppl
-# catalog-version 0.2
 Name:		texlive-pst-abspos
-Version:	0.2
-Release:	11
+Version:	15878
+Release:	1
 Summary:	Put objects at an absolute position
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-abspos
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-abspos.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-abspos.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-abspos.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-abspos.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-abspos.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-abspos.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -25,12 +19,12 @@ The (PSTricks-related) package provides a command
 even a relative) position on the page.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -46,24 +40,11 @@ even a relative) position on the page.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.2-2
-+ Revision: 755208
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 0.2-1
-+ Revision: 719330
-- texlive-pst-abspos
-- texlive-pst-abspos
-- texlive-pst-abspos
-- texlive-pst-abspos
-
