@@ -1,6 +1,6 @@
 Name:		texlive-pst-abspos
 Version:	15878
-Release:	1
+Release:	2
 Summary:	Put objects at an absolute position
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-abspos
